@@ -113,6 +113,12 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;   
   margin-top: 5px;                      
  }
+
+ /* Dropdown menu */
+ 
+ .dropdown-menu.active {
+  display: block;
+ }
  
   /* footer */
 
@@ -140,6 +146,24 @@ footer {
   margin-left: 15px;
   }
  }
+ 
+ @media (max-width: 800px) {
+  footer {
+    small {
+      display: block;
+      float: none;
+      margin-bottom: 1em;
+    }
+    ul {
+      float: none;
+      padding: 0;
+      li {
+        float: none;
+        margin-left: 0;
+      }
+    }
+  }
+}
  
  /* sidebar */
 
