@@ -1,0 +1,18 @@
+#1 Инструкция для перехода на Postgresql в деве и тесте 
+
+Все необходимые изменения в проекте уже выполнены необходимо настрить БД Postgresql в вашей среде
+Источник: https://medium.com/geekculture/ruby-on-rails-switch-from-sqlite3-to-postgres-590009645c25 
+
+- Установить  Postgresql: https://www.cherryservers.com/blog/how-to-install-and-setup-postgresql-server-on-ubuntu-20-04 
+- В командной строке войти в БД: psql -U postgres
+    появится строка postgres=#
+- Создать роль sample_app: create role sample_app with login encrypted password 'sample_password';
+- Дать права роли создавать базу данных в Postges: alter user sample_app createdb;
+- Проверить что права добавились: \du 
+
+Провести миграцию БД в проекте (нужно находиться в дирректории проекта)
+- Установить gems: bundle install
+- Создать бд от пользователя из конфига: rake db:setup
+- Провести миграцию: rake db:migrate
+- Проверить работу проекта: rails server
+
