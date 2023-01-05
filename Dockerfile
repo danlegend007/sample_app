@@ -1,6 +1,7 @@
-FROM ruby:3.2.1
+FROM ruby:3.1.2
   RUN apt-get update \
-    && apt-get install -y nodejs \
+    && apt-get install -yqq --no-install-recommends \
+    nodejs \
     postgresql-client \
     && apt-get -q clean \
     && rm -rf /var/lib/apt/lists
@@ -10,4 +11,4 @@ FROM ruby:3.2.1
   RUN bundle install
   COPY . .
 
-  CMD bundle exec unicorn -c ./config/unicorn.rb
+  CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
